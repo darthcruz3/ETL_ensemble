@@ -6,4 +6,4 @@ Requests==2.32.3
 scikit_learn==1.6.1
 streamlit==1.43.0
 xgboost==1.7.5
-
+dill==0.3.9
