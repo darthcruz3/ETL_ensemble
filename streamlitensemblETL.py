@@ -11,8 +11,8 @@ from sklearn.metrics import roc_curve, roc_auc_score, confusion_matrix
 st.set_page_config(page_title="Exhalation Technology Limited Ensemble Classifier", layout="wide")
 
 # GitHub repository URL for the model and scaler
-model_url = "https://github.com/YOUR_USERNAME/YOUR_REPOSITORY/raw/main/models/voting_ensemble_model.pkl"
-scaler_url = "https://github.com/YOUR_USERNAME/YOUR_REPOSITORY/raw/main/models/scaler.pkl"
+model_url = "https://github.com/darthcruz3/ETL_ensemble/blob/models/voting_ensemble_model.pkl"
+scaler_url = "https://github.com/darthcruz3/ETL_ensemble/blob/models/scaler.pkl"
 
 # Function to download and load model from URL
 def load_model_from_url(url):
