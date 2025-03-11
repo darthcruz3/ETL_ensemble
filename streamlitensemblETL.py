@@ -10,22 +10,16 @@ from sklearn.metrics import roc_curve, roc_auc_score, confusion_matrix
 # Set Streamlit page layout
 st.set_page_config(page_title="Exhalation Technology Limited Ensemble Classifier", layout="wide")
 
-# GitHub repository URL for the model and scaler
-model_url = "https://github.com/darthcruz3/ETL_ensemble/blob/models/voting_ensemble_model.pkl"
-scaler_url = "https://github.com/darthcruz3/ETL_ensemble/blob/models/scaler.pkl"
-
-# Function to download and load model from URL
-def load_model_from_url(url):
-    response = requests.get(url)
-    model = joblib.load(BytesIO(response.content))
-    return model
-
-# Load trained model and scaler from GitHub
-model = load_model_from_url(model_url)
-scaler = load_model_from_url(scaler_url)
-
 # Streamlit App Title
 st.title("ETL Ensemble Classifier")
+
+# Function to load model and scaler from the parent directory
+def load_model_from_file(model_name):
+    return joblib.load(model_name)
+
+# Load trained model and scaler from the current directory (or the parent directory)
+model = load_model_from_file("voting_ensemble_model.pkl")  # Assuming the model is in the parent directory
+scaler = load_model_from_file("scaler.pkl")  # Assuming the scaler is in the parent directory
 
 # Sidebar File Upload
 uploaded_file = st.sidebar.file_uploader("Upload CSV file for prediction", type=["csv"])
